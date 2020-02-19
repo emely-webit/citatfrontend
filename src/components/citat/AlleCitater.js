@@ -34,7 +34,7 @@ function AlleCitater() {
                         <div className="row">
                             <p className="col-3">{cit.citatDato}</p>
                             <h2 className="h6 col-3 card-title text-dark p1">{cit.titel}</h2>
-                            <p className="col-3">{cit.citatTekst}</p>
+                            <p className="col-3">{cit.citatTekst.length > 20 ? cit.citatTekst.substr(0,20) + "...." : cit.citatTekst}</p>
                             <p className="col-3">{cit.kategori.kategoriNavn}</p>
                         </div>
                     </Link>

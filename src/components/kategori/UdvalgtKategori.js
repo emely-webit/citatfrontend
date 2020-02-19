@@ -3,12 +3,12 @@ import {useParams} from 'react-router-dom'
 
 
 function UdvalgtKategori() {
-    const [enKat, setEnKat] = useState()
+    const [enKat, setEnKat] = useState({})
     const {katid} = useParams();
 
     useEffect(() => {
 
-        let url = 'http://localhost:5009/kategorier/' + katid
+        let url = 'http://localhost:5009/citater/kategori/' + katid
         fetch(url, {
             method: 'GET',
         })
@@ -21,23 +21,30 @@ function UdvalgtKategori() {
         .catch(function(error){
             alert("der er sket en fejl: " + error);
         })
-    }, [katid, setEnKat])
+    }, [katid])
 
-    let kategorien = "";
+    let kategoriCitater = "";
 
-    if(enKat !== undefined){
-        kategorien = (
-             <div className="card col-12 mx-auto my-5 p-4">
-                <h2 className="card-title">{enKat.kategoriNavn}</h2>
-                <small>{enKat.kategoriDate}</small>
+    if(enKat.length > 0){
+        kategoriCitater = enKat.map(kat =>{ 
+            return (
+             <div className="card col-12 mx-auto my-5 p-4" key={kat._id}>
+                <h2 className="card-title">{kat.titel}</h2>
+                <small>{kat.citatTekst}</small>
             </div>
+            )
+        })
+    }
+    else{
+        return(
+            <div>Citaterne er på vej</div>
         )
     }
 
     return (
         <div className="container">
-            <h1>Din udvalgte kategori</h1>
-            {kategorien}
+            <h1>Citaterne inden for din valgte kategori</h1>
+            {kategoriCitater}
         </div>
     )
 }
