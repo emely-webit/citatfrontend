@@ -27,12 +27,12 @@ function App() {
         <Route path="/administrator" />
         <Route path="/citat_admin" component={AdministratorCitat} />
         <Route path="/kat_admin" component={AdministratorKategori} />
-        <Route path="/kat_ret" component={RetKategori} />
+        <Route path="/kat_ret/:katid" component={RetKategori} />
         <Route path="/kat_opret" component={OpretKategori} />
-        <Route path="/kat_slet" component={SletKategori} />
-        <Route path="/citat_ret" component={RetCitat} />
+        <Route path="/kat_slet/:katid" component={SletKategori} />
+        <Route path="/citat_ret/:citid" component={RetCitat} />
         <Route path="/citat_opret" component={OpretCitat} />
-        <Route path="/citat_slet" component={SletCitat} />
+        <Route path="/citat_slet/:citid" component={SletCitat} />
       </BrowserRouter>
     </div>
   );
