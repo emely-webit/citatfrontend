@@ -47,7 +47,7 @@ function RetCitat() {
             body: JSON.stringify(retCit),
         })
         .then(res => {
-            alert("joken er rettet");
+            alert("Citatet er rettet");
             history.push("/citat_admin");
         })
         .catch(error => {
@@ -57,7 +57,7 @@ function RetCitat() {
 
     return (
         <div className="container">
-            <h1 className="py-5">Ret joke</h1>
+            <h1 className="py-5">Ret citat</h1>
             <form onSubmit={retCitat}>
                 <div className="form-group">
                     <input className="form-control" type="text" name="citTitel" defaultValue={retCit.titel} onChange={(e) => setRetCit({...retCit, titel: e.target.value})}/>
@@ -67,7 +67,7 @@ function RetCitat() {
                 </div>
                
                 <button className="btn btn-success mr-3" type="button" onClick={() => {history.push("/citat_admin")}}>Fortryd</button>
-                <button className="btn btn-success" type="submit">Gem joke</button>
+                <button className="btn btn-success" type="submit">Gem citat</button>
             </form>
         </div>
     )

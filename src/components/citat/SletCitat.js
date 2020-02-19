@@ -79,7 +79,7 @@ function SletCitat() {
 
     return (
         <div className="container">
-            <h1 className="mt-5">Dit udvalgte citat</h1>
+            <h1 className="mt-5">Er du sikker på du vil slette dette citat</h1>
             {udvalgCitat}
             <button className="btn btn-danger mr-3" onClick={() => {history.push("/citat_admin")}}>Fortryd</button>
             <button onClick={sletCitat} className="btn btn-success">Slet</button>
