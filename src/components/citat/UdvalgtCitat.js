@@ -5,7 +5,6 @@ function UdvalgtCitat() {
     const [citat, setCitat] = useState();
     const {citid} = useParams();
 
-    console.log(citid);
 
     useEffect(() =>{
         let url = 'http://localhost:5009/citater/' + citid

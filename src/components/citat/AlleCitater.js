@@ -17,7 +17,6 @@ function AlleCitater() {
             return data.json()
         })
         .then(function(jsonData){            
-            console.log(jsonData);
 
             setCitater(jsonData)
         })
