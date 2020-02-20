@@ -23,12 +23,16 @@ function OpretCitat() {
         .then(function(jsonData){
             // console.log(jsonData);
             setKatNavn(jsonData)
+            
+        })
+        .then(() => {
+            setOpCitat({kategoriId: katNavn[0]._id})
         })
         .catch(function(error){
             alert("noget gik galt: " + error)
         })
 
-    }, [])
+    }, [katNavn])
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -79,7 +83,7 @@ function OpretCitat() {
                     <textarea name="citattekst" rows="3" onChange={(e) => setOpCitat({...opCitat, citatTekst: e.target.value})} className="form-control" placeholder="Citatets tekst....."></textarea>
                 </div>
                 <div className="form-group">
-                    <select className="form-control" onChange={(e) => setOpCitat({...opCitat, kategoriId: e.target.value})}> <option value="choose">Vælge</option> {katListe}</select>
+                    <select className="form-control" onChange={(e) => setOpCitat({...opCitat, kategoriId: e.target.value})}>  {katListe}</select>
                 </div>
                 <button type="button" onClick={() => {history.push("/citat_admin")}} className="btn btn-danger mr-3">Fortryd</button>
                 <button type="submit" className="btn btn-success">Gem Citat</button>
